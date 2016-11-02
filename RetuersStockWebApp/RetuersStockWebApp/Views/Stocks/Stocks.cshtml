@@ -1,0 +1,88 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Stocks Page</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+</head>
+<body>
+    <script src="/Scripts/stocks.js"></script>
+
+    <form class="form-inline" action="AddStock">
+        <input type="text" class="form-control" name="stock" placeholder="Enter Stock Code" />
+        <button type="submit" class="btn btn-default">Add Stock</button>
+    </form>
+
+    <form class="form-inline" action="AddCategory">
+        <input type="text" class="form-control" name="category" placeholder="Enter Category Name" />
+        <button type="submit" class="btn btn-default">Add Category</button>
+    </form>
+
+    <br />
+
+    <form hidden="true" class="form-inline associate-form" action="AddStockCategory">
+        <select class="form-control associate-select-category" name="category"> </select>
+        <select class="form-control associate-select-stock" name="stock"> </select>
+        <button type="submit" class="btn btn-default">Add Category/Stock Association</button>
+    </form>
+
+    <br />
+
+    <form hidden="true" class="form-inline remove-category-form" action="RemoveCategory">
+        <select class="form-control remove-category-select" name="category"> </select>
+        <button type="submit" class="btn btn-default">Remove Category</button>
+    </form>
+
+    <br />
+
+    <form hidden="true" class="form-inline disassociate-category-form" action="RemoveStockCategory">
+        <select class="form-control disassociate-category-select" name="category"> </select>
+        <button type="submit" class="btn btn-default">Remove Stocks from Category</button>
+    </form>
+
+    <br />
+
+    <form hidden="true" class="form-inline filter-form" action="Stocks">
+        <select class="form-control filter-category-select" name="category"> </select>
+        <button type="submit" class="btn btn-default">Filter</button>
+    </form>
+
+    <br />
+
+    <progress hidden="true" class="stock-progress" value="1" max="1"></progress>
+
+    <br />
+
+    <input class="btn btn-default" type="button" onclick="location.href = '/Stocks/Stocks';" value="Reset Filters" />
+    <input class="btn btn-default" type="button" onclick="location.href = '/Stocks/AddNZX50';" value="Update NZX 50" />
+    <input class="btn btn-default" type="button" onclick="location.href = '/Stocks/AddNZX';" value="Update NZX" />
+
+    <hr />
+
+    <table class='table table-striped table-bordered'>
+        <thead>
+            <tr>
+                <td> <strong> Code </strong> </td>
+                <td> <strong> Description </strong> </td>
+                <td class="text-center"> <strong> Buy </strong> </td>
+                <td class="text-center"> <strong> OutPerform </strong> </td>
+                <td class="text-center"> <strong> Hold </strong> </td>
+                <td class="text-center"> <strong> UnderPerform </strong> </td>
+                <td class="text-center"> <strong> Sell </strong> </td>
+                <td class="text-center"> <strong> Mean </strong> </td>
+                <td class="text-center"> <strong> Mean Delta </strong> </td>
+                <td> <strong> Consensus </strong> </td>
+                <td class="text-center"> <strong> Dividend </strong> </td>
+                <td class="text-center"> <strong> PE </strong> </td>
+                <td> <strong> Link </strong> </td>
+                <td> <strong> Delete <br /> Stock </strong> </td>
+                <td> <strong> Category<br /> Associations </strong> </td>
+                <td> <strong> Remove <br /> Category <br /> Association <strong> </td>
+            </tr>
+        </thead>
+        <tbody class="stock-tbody"></tbody>
+    </table>
+</body>
